@@ -21,7 +21,7 @@ This dataset has the following classes:
 | Sky | All other pixels in the image. |
 
 
-Link to Dataset: [HERE](https://universe.roboflow.com/contrails-mqdsk/my-first-project-tpdbj)
+Link to Dataset: [HERE](https://universe.roboflow.com/contrails-mqdsk/contrails-segmentation-pybpt)
 
 
 I am going to test this on a camera that I have and probably try to make a demo video out of the detections
