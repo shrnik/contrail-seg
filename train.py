@@ -7,15 +7,17 @@ def train():
 
     # Train the model
     # using 50 epochs, image size 640
+    # gpu or mps
+
     results = model.train(
         data="datasets/contrail-seg/data.yaml",
-        epochs=50,
+        epochs=20,
         imgsz=640,
-        device='mps' if str(model.device) != 'cpu' else 'cpu', # Auto-detect MPS if available, though ultralytics handles 'device' arg well. 
-        # On Mac, 'mps' is often available. Ultralytics auto-selects usually.
-        # Let's just let it auto-detect or specify if needed.
-        # Actually, explicitly setting device='mps' is good if on Apple Silicon.
+        device="cuda"
     )
+    # Save the model after training
+    model.save("trained_model.pt")
+
 
 if __name__ == "__main__":
     train()
