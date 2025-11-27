@@ -13,7 +13,9 @@ def train():
         data="datasets/contrail-seg/data.yaml",
         epochs=20,
         imgsz=640,
-        device="cuda"
+        device="cuda",
+        project="contrail-seg"
+        name = "yolo11m-seg"
     )
     # Save the model after training
     model.save("trained_model.pt")
