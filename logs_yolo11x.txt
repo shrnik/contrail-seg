@@ -1,5 +1,5 @@
 YOLO11x-seg summary (fused): 203 layers, 62,011,368 parameters, 0 gradients, 295.9 GFLOPs
-K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95): 100% â”â”â”â”â”â”â”â”â”â”â”â” 10/10 2.4it/s 4.2s.4ss
+K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95)     Mask(P          R      mAP50  mAP50-95)
                    all        320        838      0.748      0.531      0.547      0.306      0.748      0.506      0.526      0.237
         contrail maybe         14         16          1          0      0.107     0.0259          1          0     0.0904     0.0321
           contrail old         64         88      0.465      0.398      0.385      0.198      0.441      0.352      0.318     0.0956
