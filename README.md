@@ -24,4 +24,59 @@ This dataset has the following classes:
 Link to Dataset: [HERE](https://universe.roboflow.com/contrails-mqdsk/contrails-segmentation-pybpt)
 
 
-I am going to test this on a camera that I have and probably try to make a demo video out of the detections
+# Results:
+
+# YOLO11l-seg (fused)
+**Model summary**
+- **Model:** YOLO11l-seg (fused)  
+- **Layers:** 203  
+- **Parameters:** 27,590,760
+- **Gradients:** 0  
+- **GFLOPs:** 131.9
+
+### Validation metrics (L)
+| Class             | Images | Instances | Box(P) | Box(R) | Box mAP50 | Box mAP50-95 | Mask(P) | Mask(R) | Mask mAP50 | Mask mAP50-95 |
+|-------------------|--------|-----------|--------|--------|-----------|--------------|---------|---------|------------|---------------|
+| all               | 320    | 856       | 0.636  | 0.489  | 0.549     | 0.346        | 0.626   | 0.479   | 0.526      | 0.247         |
+| contrail maybe    | 16     | 20        | 0      | 0      | 0.0633    | 0.0202       | 0       | 0       | 0.0516     | 0.00944       |
+| contrail old      | 73     | 99        | 0.55   | 0.47   | 0.479     | 0.314        | 0.49    | 0.417   | 0.391      | 0.15          |
+| contrail veryold  | 110    | 245       | 0.669  | 0.661  | 0.708     | 0.497        | 0.656   | 0.649   | 0.676      | 0.313         |
+| contrail young    | 124    | 168       | 0.683  | 0.554  | 0.604     | 0.358        | 0.693   | 0.56    | 0.626      | 0.263         |
+| parasite          | 90     | 147       | 0.857  | 0.695  | 0.822     | 0.49         | 0.841   | 0.681   | 0.773      | 0.342         |
+| sun               | 168    | 168       | 0.925  | 0.821  | 0.932     | 0.533        | 0.932   | 0.827   | 0.93       | 0.54          |
+| unknow            | 9      | 9         | 0.768  | 0.222  | 0.234     | 0.208        | 0.769   | 0.222   | 0.236      | 0.112         |
+
+
+
+# YOLO11x-seg (fused)
+
+**Model summary**
+
+- **Model:** YOLO11x-seg (fused)  
+- **Layers:** 203  
+- **Parameters:** 62,011,368  
+- **Gradients:** 0  
+- **GFLOPs:** 295.9  
+
+---
+
+### Validation metrics (K)
+
+| Class            | Images | Instances | Box P  | Box R  | Box mAP50 | Box mAP50-95 | Mask P | Mask R | Mask mAP50 | Mask mAP50-95 |
+|------------------|--------|-----------|--------|--------|-----------|--------------|--------|--------|------------|---------------|
+| all              | 320    | 838       | 0.748  | 0.531  | 0.547     | 0.306        | 0.748  | 0.506  | 0.526      | 0.237         |
+| contrail maybe   | 14     | 16        | 1      | 0      | 0.107     | 0.0259       | 1      | 0      | 0.0904     | 0.0321        |
+| contrail old     | 64     | 88        | 0.465  | 0.398  | 0.385     | 0.198        | 0.441  | 0.352  | 0.318      | 0.0956        |
+| contrail veryold | 113    | 250       | 0.657  | 0.616  | 0.654     | 0.378        | 0.667  | 0.6    | 0.613      | 0.257         |
+| contrail young   | 127    | 160       | 0.553  | 0.613  | 0.472     | 0.247        | 0.553  | 0.569  | 0.482      | 0.173         |
+| parasite         | 82     | 141       | 0.784  | 0.809  | 0.824     | 0.494        | 0.765  | 0.74   | 0.781      | 0.365         |
+| sun              | 169    | 169       | 0.883  | 0.853  | 0.901     | 0.486        | 0.9    | 0.853  | 0.912      | 0.51          |
+| unknow           | 14     | 14        | 0.895  | 0.429  | 0.484     | 0.315        | 0.907  | 0.429  | 0.488      | 0.229         |
+
+---
+
+**Speed**
+
+- Preprocess: 0.2 ms / image  
+- Inference: 4.8 ms / image  
+- Postprocess: 1.5 ms / image  
