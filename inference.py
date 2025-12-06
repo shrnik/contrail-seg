@@ -6,21 +6,18 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
+model_name = "yolov11x"
 IMAGE_DIR = "/Users/shrenikborad/Downloads/NNDL/images_uwisc/east/2025-01-09/east"
-OUTPUT_DIR = "output_frames"
-OUTPUT_VIDEO = "segmentation_results_2.mp4"
+OUTPUT_VIDEO = f"segmentation_results_{model_name}_1280.mp4"
 
-def run_inference(model_path="/Users/shrenikborad/pless/contrail-seg/best.pt", fps=5, max_images=None):
+def run_inference(model_path=f"/Users/shrenikborad/pless/contrail-seg/best_{model_name}.pt", fps=5, max_images=None):
     # Load model
     model = YOLO(model_path)
-
-    # Create output directory for frames
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     paths = sorted(list(Path(IMAGE_DIR).glob("*.jpg")))
     image_times = [datetime.strptime(f.name.split('.')[0], '%H_%M_%S') for f in paths]
     image_df = pd.DataFrame({'time': image_times, 'path': paths})
-    image_df = image_df[(image_df['time'] >= datetime.strptime('08:00:00', '%H:%M:%S')) & (image_df['time'] < datetime.strptime('09:00:00', '%H:%M:%S'))]
+    image_df = image_df[(image_df['time'] >= datetime.strptime('07:00:00', '%H:%M:%S')) & (image_df['time'] < datetime.strptime('07:15:00', '%H:%M:%S'))]
     paths = image_df['path'].tolist()
     if max_images:
         paths = paths[:max_images]
@@ -73,7 +70,6 @@ def run_inference(model_path="/Users/shrenikborad/pless/contrail-seg/best.pt", f
     if video_writer is not None:
         video_writer.release()
     print(f"Video saved to: {OUTPUT_VIDEO}")
-    print(f"Individual frames saved to: {OUTPUT_DIR}/")
 
 
 if __name__ == "__main__":
